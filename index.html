@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Longevity Coach</title>
+    <style>
+        body { font-family: Arial; padding: 20px; max-width: 700px; margin: auto; }
+        input, textarea { width: 100%; padding: 8px; margin: 6px 0; }
+        button { padding: 10px 20px; }
+        .output { background: #f0f0f0; padding: 15px; margin-top: 20px; border-left: 4px solid #4CAF50; }
+    </style>
+</head>
+<body>
+    <h1>AI Longevity Asistent</h1>
+    <form method="POST">
+        <label>Koľko hodín denne spíš?</label>
+        <input name="sleep" required>
+
+        <label>Popíš svoj pohyb (typ, frekvencia):</label>
+        <input name="exercise" required>
+
+        <label>Popíš svoju stravu (kedy, čo ješ):</label>
+        <input name="diet" required>
+
+        <label>Úroveň stresu (nízky/stredný/vysoký):</label>
+        <input name="stress" required>
+
+        <label>Iné návyky, doplnky, špecifiká:</label>
+        <textarea name="other" rows="3"></textarea>
+
+        <button type="submit">Získať odporúčanie</button>
+    </form>
+
+    {% if advice %}
+        <div class="output">
+            <h3>Odporúčania:</h3>
+            <p>{{ advice|safe }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
